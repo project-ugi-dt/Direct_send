@@ -73,3 +73,15 @@
 5. Подключитесь через SSH с ПК:
    ```bash
    ssh <username>@<ip_raspberry>
+## Установка Docker и Home Assistant
+
+### 1. Установка Docker
+
+**Для Windows (через WSL):**
+
+1. Установите [Docker Desktop](https://www.docker.com/products/docker-desktop/).  
+2. Убедитесь, что включена поддержка **WSL2**.  
+3. После установки проверьте работу Docker:
+   ```bash
+   docker --version
+   docker compose version
