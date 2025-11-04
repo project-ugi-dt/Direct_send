@@ -85,3 +85,57 @@
    ```bash
    docker --version
    docker compose version
+**Для Linux (Ubuntu/Debian)**
+ ```sudo apt update
+sudo apt install docker.io docker-compose -y
+sudo systemctl enable docker
+sudo systemctl start docker
+
+
+## 3. Подключение Ecowitt к Home Assistant
+
+1. Откройте интерфейс Home Assistant.  
+2. Перейдите в **Настройки → Интеграции → Добавить интеграцию**.  
+3. Найдите и выберите **Ecowitt**.  
+4. Введите IP-адрес устройства и порт (по умолчанию 4199).  
+5. После успешного подключения вы увидите данные о температуре, влажности, ветре и осадках в панели приборов.
+
+---
+
+## 4. Загрузка данных на FrostServer
+
+1. Убедитесь, что контейнер FrostServer работает:
+```bash
+docker ps
+```
+Если нет — запустите:
+```bash
+cd FrostServer
+docker compose up -d
+```
+
+2. Загрузите обработанные данные:
+```bash
+python load_frost.py
+```
+
+3. Для проверки успешной загрузки откройте веб-интерфейс FrostServer или выполните запрос через API:
+```bash
+curl http://localhost:8080/v1.1/Things
+```
+
+---
+
+## 5. Ссылки и источники
+
+1. [Sensor.Community Archive](https://archive.sensor.community/)
+2. [FROST Server (OGC SensorThings API)](https://fraunhoferiosb.github.io/FROST-Server/)
+3. [Docker Documentation](https://docs.docker.com/)
+4. [Home Assistant](https://www.home-assistant.io/)
+5. [Ecowitt Devices Integration Guide](https://community.home-assistant.io/t/ecowitt-integration)
+6. [Python Requests Library](https://requests.readthedocs.io/)
+7. [Pandas Documentation](https://pandas.pydata.org/)
+8. [Mapbox Geocoding API](https://docs.mapbox.com/api/search/geocoding/)
+9. [OpenPyXL Documentation](https://openpyxl.readthedocs.io/)
+10. [GitHub Markdown Guide](https://guides.github.com/features/mastering-markdown/)
+11. [FrostServer Docker Image](https://hub.docker.com/r/frostserver/frost-server)
