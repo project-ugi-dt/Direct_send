@@ -91,6 +91,29 @@ sudo apt install docker.io docker-compose -y
 sudo systemctl enable docker
 sudo systemctl start docker
  ```
+Проверьте:
+ ```docker --version
+ ```
+## 2. Развёртывание Home Assistant
+1.Создайте отдельную директорию для Home Assistant:
+```mkdir homeassistant
+cd homeassistant
+```
+2. Создайте файл docker-compose.yml со следующим содержимым:
+```version: '3'
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: ghcr.io/home-assistant/home-assistant:stable
+    volumes:
+      - ./config:/config
+    restart: unless-stopped
+    network_mode: host
+```
+3. Запустите контейнер:
+```docker compose up -d```
+4. После запуска Home Assistant будет доступен по адресу:
+   ```http://localhost:8123```
 
 ## 3. Подключение Ecowitt к Home Assistant
 
