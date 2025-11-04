@@ -79,7 +79,7 @@
 ### 1. Установка Docker
 
 1. Обновление системы
-   ```bash
+```bash
 sudo apt update && sudo apt upgrade -y
 sudo reboot
 ```
@@ -95,7 +95,7 @@ docker --version
 docker ps
 ```
 3. Установка Home Assistant
-   ```bash
+```bash
 mkdir -p /home/pi/homeassistant/config
 sudo docker run -d \
 --name homeassistant \
