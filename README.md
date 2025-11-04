@@ -164,36 +164,14 @@ http://<ip_raspberry>:8123
 1. Откройте интерфейс Home Assistant.  
 2. Перейдите в **Настройки → Интеграции → Добавить интеграцию**.  
 3. Найдите и выберите **Ecowitt**.  
-4. Введите IP-адрес устройства и порт (по умолчанию 4199).  
+4. Введите IP-адрес устройства и порт.  
 5. После успешного подключения вы увидите данные о температуре, влажности, ветре и осадках в панели приборов.
 
 ---
 
-## 4. Загрузка данных на FrostServer
 
-1. Убедитесь, что контейнер FrostServer работает:
-```bash
-docker ps
-```
-Если нет — запустите:
-```bash
-cd FrostServer
-docker compose up -d
-```
 
-2. Загрузите обработанные данные:
-```bash
-python load_frost.py
-```
-
-3. Для проверки успешной загрузки откройте веб-интерфейс FrostServer или выполните запрос через API:
-```bash
-curl http://localhost:8080/v1.1/Things
-```
-
----
-
-## 5. Ссылки и источники
+## 4. Ссылки и источники
 
 1. [Sensor.Community Archive](https://archive.sensor.community/)
 2. [FROST Server (OGC SensorThings API)](https://fraunhoferiosb.github.io/FROST-Server/)
